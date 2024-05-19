@@ -1,7 +1,7 @@
 function HomePage() {
     return (
         <div>
-            <h1>CHARGING STATION GO BRUM BRUM tets</h1>
+            <h1>CHARGING STATION GO BRUM BRUM tetsa</h1>
         </div>
     )
 }
