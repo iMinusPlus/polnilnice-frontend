@@ -2,9 +2,9 @@ import AppBar from "../components/AppBar";
 
 function HomePage() {
     return (
-        <div className="container-fluid">
+        <div className="bg-neutral">
             <AppBar />
-            <div className="jumbotron text-center page-content ">
+            <div className="jumbotron text-center page-content text-white">
                 <h1 className="display-4">CHARGING STATION GO BRUM BRUM</h1>
                 <p className="text-3xl font-bold underline">Looking to charge your car?</p>
                 <p className="lead">Look further here nothing is yet implemented</p>
