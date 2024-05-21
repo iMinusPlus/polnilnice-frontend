@@ -2,6 +2,7 @@ import './App.css';
 import HomePage from "./pages/HomePage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UserProfile from "./pages/UserProfile";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
