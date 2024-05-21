@@ -4,7 +4,9 @@ function UserProfile() {
     return (
         <div>
             <AppBar/>
-            <p>TEST</p>
+            <div className="page-content text-center">
+                <p className="display-6 lead error-text">PAGE UNDER CONSTRUCTION</p>
+            </div>
         </div>
     )
 }
