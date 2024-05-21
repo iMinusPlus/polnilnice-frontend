@@ -9,6 +9,11 @@ function AppBar() {
                 <div className="container">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item" style={styles.navItem}>
+                            <Link className="navbar-brand" to="/">
+                                <img src="/Elektropolnilnice_FullColor_NoBg_Symbol_2010x1080.png" alt="Logo" height="30" className="d-inline-block align-top" />
+                            </Link>
+                        </li>
+                        <li className="nav-item" style={styles.navItem}>
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item" style={styles.navItem}>
