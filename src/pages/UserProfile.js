@@ -1,12 +1,12 @@
 import AppBar from "../components/AppBar";
 
-function HomePage() {
+function UserProfile() {
     return (
         <div>
             <AppBar/>
-            <h1>CHARGING STATION GO BRUM BRUM</h1>
+            <p>TEST</p>
         </div>
     )
 }
 
-export default HomePage;
+export default UserProfile;
