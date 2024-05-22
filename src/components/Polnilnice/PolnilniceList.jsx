@@ -19,6 +19,12 @@ function PolnilniceList() {
     }, []);
 
     if (isLoading) {
+        return <div>
+            <AppBar/>
+            <div>
+                Loading...
+            </div>
+        </div>;
         return <div>Loading...</div>;
     }
 
