@@ -12,15 +12,20 @@ function AppBar() {
                     </Link>
                 </div>
                 <div className="navbar-center">
-                    <div><Link className="btn text-white" to="/">Home</Link></div>
-                    <div ><Link className="btn text-white" to="/user">User</Link></div>
-                    <div ><Link className="btn text-white" to="/polnilnice">Polnilnice</Link></div>
+                    <div className={"join"}>
+                        <div><Link className="btn join-item text-white" to="/">Home</Link></div>
+                        <div><Link className="btn join-item text-white" to="/user">User</Link></div>
+                        <div><Link className="btn join-item text-white" to="/polnilnice">Polnilnice</Link></div>
+                    </div>
+
                 </div>
                 <div className={"navbar-end"}>
-                    <p>1</p>
+                    <div><Link className="btn text-white" to="/login">Login</Link></div>
+                    <div><Link className="btn text-white" to="/register">Register</Link></div>
                 </div>
             </div>
 
     );
 }
+
 export default AppBar;
