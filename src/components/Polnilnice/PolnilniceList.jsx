@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import PolnilnicaCard from "./PolnilnicaCard";
 import AppBar from "../AppBar";
+import Footer from "../Footer";
 
 function PolnilniceList() {
     const [data, setData] = useState([]);
@@ -19,8 +20,17 @@ function PolnilniceList() {
     }, []);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <AppBar/>
+                <div className="flex justify-center items-center min-h-screen">
+                    <span className="loading loading-ring loading-lg"></span>
+                </div>
+            </div>
+
+        );
     }
+
 
     return (
         <div className="mx-auto bg-neutral">
@@ -31,6 +41,7 @@ function PolnilniceList() {
                     <PolnilnicaCard key={index} item={item}/>
                 ))}
             </div>
+            <Footer/>
         </div>
     );
 }

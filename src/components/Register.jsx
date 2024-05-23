@@ -1,5 +1,6 @@
 import AppBar from "../components/AppBar";
 import {useState} from "react";
+import Footer from "./Footer";
 
 function Register() {
     const [username, setUsername] = useState([]);
@@ -93,6 +94,7 @@ function Register() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
 
     )

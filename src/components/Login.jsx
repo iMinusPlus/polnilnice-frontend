@@ -1,6 +1,7 @@
 import AppBar from "../components/AppBar";
 import {useContext, useState} from "react";
 import {UserContext} from "../context/userContext";
+import Footer from "./Footer";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -34,7 +35,7 @@ function Login() {
             <AppBar/>
             <div className="flex flex-1 justify-center items-center bg-neutral text-center">
                 <div>
-                    <h1 className={"text-4xl"}>LOGIN</h1>
+                    <h1 className={"text-4xl drop-shadow-md"}>LOGIN</h1>
                     <div className="card w-96 bg-base-100 shadow-xl mt-4">
                         <div>
                             <form className={"card-body"} onSubmit={Login}>
@@ -78,6 +79,7 @@ function Login() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
 
     )

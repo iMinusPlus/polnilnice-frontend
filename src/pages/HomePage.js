@@ -1,4 +1,5 @@
 import AppBar from "../components/AppBar";
+import Footer from "../components/Footer";
 
 function HomePage() {
     return (
@@ -11,6 +12,7 @@ function HomePage() {
                 <br/><hr className={"hr-gradient"}/><br/>
                 <p className="display-6 lead text-error">PAGE UNDER CONSTRUCTION</p>
             </div>
+            <Footer />
         </div>
     )
 }
