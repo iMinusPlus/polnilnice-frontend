@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{html,js,ts,jsx,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'gradient-rainbow': 'linear-gradient(45deg, #06ba39, #0183EEF9)',
+      },
+      borderImage: {
+        'gradient-border': 'linear-gradient(45deg, #06ba39, #0183EEF9) 1',
+      },
+    },
   },
   daisyui: {
     themes: [
