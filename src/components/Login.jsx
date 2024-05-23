@@ -11,7 +11,7 @@ function Login() {
 
     async function Login(e){
         e.preventDefault();
-        const res = await fetch("http://localhost:3001/users/login", {
+        const res = await fetch("http://elektropolnilnice.eu:3000/users/login", {
             method: "POST",
             credentials: "include",
             headers: { 'Content-Type': 'application/json'},
@@ -21,8 +21,12 @@ function Login() {
             })
         });
         const data = await res.json();
-        if(data._id !== undefined){
+        console.log(data)
+        res.cookie('jwt', data.token, { httpOnly: true, secure: true, sameSite: 'Strict' }); // Dodal sem secure in sameSite za večjo varnost
+        if(data.user._id){
+            console.log("Context bi moral biti ustvarjen!")
             userContext.setUserContext(data);
+            window.location.href="/";
         } else {
             setUsername("");
             setPassword("");

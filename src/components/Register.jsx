@@ -10,7 +10,7 @@ function Register() {
 
     async function Register(e){
         e.preventDefault();
-        const res = await fetch("http://localhost:3001/users", {
+        const res = await fetch("http://elektropolnilnice.eu:3000/users/", {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
@@ -22,7 +22,7 @@ function Register() {
         });
         const data = await res.json();
         if(data._id !== undefined){
-            window.location.href="/";
+            window.location.href="/login";
         }
         else{
             setUsername("");

@@ -24,7 +24,7 @@ function HomePage(props) {
                 <MapContainer
                     center={[46.55506005175182, 15.643692532583719]}
                     zoom={13}
-                    style={{ height: "500px", width: "100%" }}
+                    style={{ height: "65vh", width: "100%" }}
                 >
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
