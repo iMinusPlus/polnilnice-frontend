@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+html, body, #root, .App {
+  height: 100%;
+}
+
+.main-content {
+  min-height: calc(100vh - 64px - 64px); /* Adjust this if needed based on your header and footer height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.border-gradient {
+  border: 4px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(45deg, #06ba39, #0183EEF9);
+}
+
+.hr-gradient {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(90deg, #06ba39, #0183EEF9);
+}
+
+
