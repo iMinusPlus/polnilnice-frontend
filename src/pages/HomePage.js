@@ -1,44 +1,40 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import AppBar from "../components/AppBar";
 import Footer from "../components/Footer";
-/*import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 
-// Fix for marker icons not displaying correctly
-import L from 'leaflet';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-    iconUrl: markerIcon,
-    shadowUrl: markerShadow
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;*/
+mapboxgl.accessToken = 'pk.eyJ1IjoibnVjbGV1c2JlYXN0IiwiYSI6ImNsd2pvandmcjE0ZTEyaW83ajMwdDd3NHQifQ.3v2gWxIh8fwbkupLAabx0A';
 
 function HomePage(props) {
+
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    const [lng] = useState(15.655);
+    const [lat] = useState(46.5555);
+    const [zoom] = useState(13);
+
+    useEffect(() => {
+        if (map.current) return; // initialize map only once
+        map.current = new mapboxgl.Map({
+            container: mapContainer.current,
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [lng, lat],
+            zoom: zoom
+        });
+    });
+
     return (
         <div className="bg-neutral min-h-screen flex flex-col">
-            <AppBar />
+            <AppBar/>
+            <br/>
             <div className="flex-grow">
-                {/*<MapContainer
-                    center={[46.55506005175182, 15.643692532583719]}
-                    zoom={13}
-                    style={{ height: "65vh", width: "100%" }}
-                >
-                    <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={[46.55506005175182, 15.643692532583719]}>
-                        <Popup>
-                            A pretty CSS3 popup.
-                        </Popup>
-                    </Marker>
-                </MapContainer>*/}
                 <br/>
+                <div className={"flex justify-center"}>
+                    <div ref={mapContainer} className="map-container"/>
+                </div>
                 <p className="display-6 lead text-error text-center">PAGE UNDER CONSTRUCTION</p>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }
