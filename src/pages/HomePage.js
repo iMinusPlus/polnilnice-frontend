@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from "../components/AppBar";
 import Footer from "../components/Footer";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+/*import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // Fix for marker icons not displaying correctly
@@ -14,14 +14,14 @@ let DefaultIcon = L.icon({
     shadowUrl: markerShadow
 });
 
-L.Marker.prototype.options.icon = DefaultIcon;
+L.Marker.prototype.options.icon = DefaultIcon;*/
 
 function HomePage(props) {
     return (
         <div className="bg-neutral min-h-screen flex flex-col">
             <AppBar />
             <div className="flex-grow">
-                <MapContainer
+                {/*<MapContainer
                     center={[46.55506005175182, 15.643692532583719]}
                     zoom={13}
                     style={{ height: "65vh", width: "100%" }}
@@ -34,7 +34,7 @@ function HomePage(props) {
                             A pretty CSS3 popup.
                         </Popup>
                     </Marker>
-                </MapContainer>
+                </MapContainer>*/}
                 <br/>
                 <p className="display-6 lead text-error text-center">PAGE UNDER CONSTRUCTION</p>
             </div>
