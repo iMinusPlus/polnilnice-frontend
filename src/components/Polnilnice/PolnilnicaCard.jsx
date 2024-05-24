@@ -14,7 +14,7 @@ function PolnilnicaCard(item) {
         };
 
         fetchAddress();
-    }, []);
+    }, [item.item.address]);
 
     return (
         <div className="card w-full shadow-xl rounded-lg overflow-hidden m-4 p-4 bg-base-100">
