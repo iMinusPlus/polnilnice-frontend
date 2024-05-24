@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 function PolnilnicaCard(item) {
     // console.log(item);
@@ -17,7 +17,8 @@ function PolnilnicaCard(item) {
     }, [item.item.address]);
 
     return (
-        <div className="card w-full shadow-xl rounded-lg overflow-hidden m-4 p-4 bg-base-100">
+        <div
+            className="card w-full shadow-xl rounded-lg overflow-hidden m-4 p-4 bg-base-100">
             <div className="card-body">
                 <h2 className="card-title mb-2">{address.title}</h2>
                 <p>{address.town} - {address.country}</p>

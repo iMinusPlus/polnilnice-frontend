@@ -36,7 +36,7 @@ function PolnilniceList() {
         <div className="mx-auto bg-neutral">
             <AppBar/>
             <h1 className="text-4xl font-bold mb-4 mt-4 text-white">Polnilnice:</h1>
-            <div className="grid grid-cols-4 gap-4 mr-6 bg-neutral">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mr-6 bg-neutral">
                 {data.map((item, index) => (<PolnilnicaCard key={index} item={item}/>))}
             </div>
             <Footer/>
