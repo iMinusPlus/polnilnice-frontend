@@ -37,13 +37,13 @@ function AppBar() {
                         <ul tabIndex={0}
                             className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li>
-                                <a className="justify-between">
+                                <Link className="justify-between" to={"/"}>
                                     Profile
                                     <span className="badge">New</span>
-                                </a>
+                                </Link>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li><Link to={"/"}>Settings</Link></li>
+                            <li><Link to={"/"}>Logout</Link></li>
                         </ul>
                     </div>
                 )}
@@ -81,13 +81,13 @@ function AppBar() {
                         <ul tabIndex={0}
                             className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li>
-                                <a className="justify-between">
+                                <Link className="justify-between" to={"/"}>
                                     Profile
                                     <span className="badge">New</span>
-                                </a>
+                                </Link>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li><Link to={"/"}>Settings</Link></li>
+                            <li><Link to={"/"}>Logout</Link></li>
                         </ul>
                     </div>
                 )}
