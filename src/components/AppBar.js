@@ -35,7 +35,7 @@ function AppBar() {
                             </div>
                         </div>
                         <ul tabIndex={0}
-                            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                            className="mt-3 z-50 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li>
                                 <Link className="justify-between" to={"/"}>
                                     Profile
@@ -58,7 +58,7 @@ function AppBar() {
                         </svg>
                     </label>
                     <ul tabIndex={0}
-                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/user">User</Link></li>
                         <li><Link to="/polnilnice">Polnilnice</Link></li>
@@ -79,7 +79,7 @@ function AppBar() {
                             </div>
                         </div>
                         <ul tabIndex={0}
-                            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                            className="mt-3 z-50 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li>
                                 <Link className="justify-between" to={"/"}>
                                     Profile
