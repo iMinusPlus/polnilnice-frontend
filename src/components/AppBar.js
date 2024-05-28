@@ -4,8 +4,7 @@ import { UserContext } from "../context/userContext";
 
 function AppBar() {
     const [token, setToken] = useState('')
-    const [userData, setUserData] = useState({})
-    const userContext = useContext(UserContext);
+    const {userData, setUserContext} = useContext(UserContext);
 
     useEffect(() => {
         const storedToken = localStorage.getItem('jwt-token');
@@ -18,14 +17,19 @@ function AppBar() {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    setUserData(data);
-                    userContext.setUserContext(data); // Shrani podatke v UserContext
+                    setUserContext(data); // Shrani podatke v UserContext
                 })
                 .catch((err) => {
                     console.error('Error fetching protected route:', err);
                 });
         }
     }, []);
+
+    function logout() {
+        setToken('')
+        localStorage.removeItem('jwt-token')
+        window.location.href = "/";
+    }
 
     return (
         <div className="navbar bg-base-100 text-white shadow-md">
@@ -37,7 +41,7 @@ function AppBar() {
             <div className="navbar-center hidden lg:flex">
                 <div className="join">
                     <div><Link className="btn join-item text-white" to="/">Home</Link></div>
-                    <div><Link className="btn join-item text-white" to="/user">User</Link></div>
+                    <div><Link className="btn join-item text-white" to="/">Statistics</Link></div>
                     <div><Link className="btn join-item text-white" to="/polnilnice">Polnilnice</Link></div>
                 </div>
             </div>
@@ -57,13 +61,13 @@ function AppBar() {
                         </div>
                         <ul tabIndex={0} className="mt-3 z-50 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li>
-                                <Link className="justify-between" to="/">
+                                <Link className="justify-between" to="/user">
                                     Profile
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
                             <li><Link to="/">Settings</Link></li>
-                            <li><Link to="/">Logout</Link></li>
+                            <li><button onClick={logout}>Logout</button></li>
                         </ul>
                     </div>
                 )}
