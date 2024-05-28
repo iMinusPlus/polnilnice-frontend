@@ -21,16 +21,13 @@ function Login() {
             })
         });
         const data = await res.json();
-        console.log(data)
-        res.cookie('jwt', data.token, { httpOnly: true, secure: true, sameSite: 'Strict' }); // Dodal sem secure in sameSite za večjo varnost
-        if(data.user._id){
-            console.log("Context bi moral biti ustvarjen!")
-            userContext.setUserContext(data);
-            window.location.href="/";
+        if (data.message === 'Login successful') {
+            localStorage.setItem('jwt-token', data.token)
+            setUsername('')
+            setPassword('')
+            window.location.href = "/";
         } else {
-            setUsername("");
-            setPassword("");
-            setError("Invalid username or password");
+            alert(data.message)
         }
     }
 
