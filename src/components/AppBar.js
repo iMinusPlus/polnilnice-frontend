@@ -81,7 +81,7 @@ function AppBar() {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/user">User</Link></li>
+                        <li><Link to="/">Statistics</Link></li>
                         <li><Link to="/polnilnice">Polnilnice</Link></li>
                         {!token && (
                             <>
