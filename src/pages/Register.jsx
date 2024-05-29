@@ -1,33 +1,34 @@
 import AppBar from "../components/AppBar";
-import {useContext, useState} from "react";
-import {UserContext} from "../context/userContext";
-import Footer from "./Footer";
+import {useState} from "react";
+import Footer from "../components/Footer";
 
-function Login() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    const userContext = useContext(UserContext);
+function Register() {
+    const [username, setUsername] = useState([]);
+    const [password, setPassword] = useState([]);
+    const [email, setEmail] = useState([]);
+    const [error, setError] = useState([]);
 
-    async function Login(e){
+    async function Register(e){
         e.preventDefault();
-        const res = await fetch("http://elektropolnilnice.eu:3000/users/login", {
-            method: "POST",
-            credentials: "include",
-            headers: { 'Content-Type': 'application/json'},
+        const res = await fetch("http://elektropolnilnice.eu:3000/users/", {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                email: email,
                 username: username,
                 password: password
             })
         });
         const data = await res.json();
-        if (data.message === 'Login successful') {
-            localStorage.setItem('jwt-token', data.token)
-            setUsername('')
-            setPassword('')
-            window.location.href = "/";
-        } else {
-            alert(data.message)
+        if(data._id !== undefined){
+            window.location.href="/login";
+        }
+        else{
+            setUsername("");
+            setPassword("");
+            setEmail("");
+            setError("Registration failed");
         }
     }
 
@@ -36,10 +37,10 @@ function Login() {
             <AppBar/>
             <div className="flex flex-1 justify-center items-center bg-neutral text-center">
                 <div>
-                    <h1 className={"text-4xl drop-shadow-md"}>LOGIN</h1>
+                    <h1 className={"text-4xl"}>REGISTER</h1>
                     <div className="card w-96 bg-base-100 shadow-xl mt-4">
                         <div>
-                            <form className={"card-body"} onSubmit={Login}>
+                            <form className={"card-body"} onSubmit={Register}>
                                 <label className="input input-bordered flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                                          className="w-4 h-4 opacity-70">
@@ -52,6 +53,22 @@ function Login() {
                                         placeholder="Username"
                                         value={username}
                                         onChange={(e) => setUsername(e.target.value)}
+                                    />
+                                </label>
+                                <label className="input input-bordered flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                         className="w-4 h-4 opacity-70">
+                                        <path
+                                            d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/>
+                                        <path
+                                            d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/>
+                                    </svg>
+                                    <input
+                                        type="text"
+                                        className="grow"
+                                        placeholder="Email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                 </label>
                                 <label className="input input-bordered flex items-center gap-2">
@@ -70,10 +87,7 @@ function Login() {
                                     />
                                 </label>
                                 <div className="card-actions justify-end">
-                                    <button
-                                        type="submit"
-                                        className="btn bg-gradient-rainbow text-white">Login
-                                    </button>
+                                    <button type={"submit"} className="btn bg-gradient-rainbow">Register</button>
                                 </div>
                             </form>
                         </div>
@@ -86,4 +100,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Register;
