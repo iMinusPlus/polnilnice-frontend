@@ -69,7 +69,7 @@ function AppBar() {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                            <li><Link to="/">Settings</Link></li>
+                            <li><Link to="/settings">Settings</Link></li>
                             <li>
                                 <button onClick={logout}>Logout</button>
                             </li>
@@ -115,7 +115,7 @@ function AppBar() {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                            <li><Link to="/">Settings</Link></li>
+                            <li><Link to="/settings">Settings</Link></li>
                             <li><button onClick={logout}>Logout</button></li>
                         </ul>
                     </div>
