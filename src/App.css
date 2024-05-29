@@ -61,4 +61,10 @@ html, body, #root, .App {
   background-image: linear-gradient(90deg, #06ba39, #0183EEF9);
 }
 
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
+
 
