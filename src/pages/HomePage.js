@@ -32,6 +32,7 @@ function HomePage(props) {
                 <div className={"flex justify-center"}>
                     <div ref={mapContainer} className="map-container"/>
                 </div>
+                <p>TEST</p>
                 <p className="display-6 lead text-error text-center">PAGE UNDER CONSTRUCTION</p>
             </div>
             <Footer/>
