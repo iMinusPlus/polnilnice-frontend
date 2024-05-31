@@ -48,23 +48,16 @@ html, body, #root, .App {
   justify-content: center;
 }
 
-.border-gradient {
-  border: 4px solid;
-  border-image-slice: 1;
-  border-width: 2px;
-  border-image-source: linear-gradient(45deg, #06ba39, #0183EEF9);
-}
 
-.hr-gradient {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(90deg, #06ba39, #0183EEF9);
-}
+/* Dodajaj stile v index.css in ne v App.css (index.css je za celoten projekt) */
 
-.map-container {
-  width: 100%;
-  height: 100%;
-}
+
+ /*to je david dodal in se je zemljevid pokvaro*/
+
+/*.map-container {*/
+/*  width: 600px;*/
+/*  height: 88%;*/
+/*}*/
 
 
 
