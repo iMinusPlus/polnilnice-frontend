@@ -7,12 +7,33 @@ function Map() {
 
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng] = useState(15.655);
-    const [lat] = useState(46.5555);
+    const [lng, setLng] = useState(15.655);
+    const [lat, setLat] = useState(46.5555);
     const [zoom] = useState(13);
 
     useEffect(() => {
         if (map.current) return; // initialize map only once
+
+        // Check if the Geolocation API is available
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                // Get the user's current location
+                const userLocation = [position.coords.longitude, position.coords.latitude];
+
+                setLng(userLocation[0]);
+                setLat(userLocation[1]);
+
+                // Add a marker to the map at the user's current location
+                new mapboxgl.Marker()
+                    .setLngLat(userLocation)
+                    .addTo(map.current);
+            });
+        } else {
+            console.log('Geolocation API not available.');
+            setLat(46.5555);
+            setLng(15.655);
+        }
+
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v12',
