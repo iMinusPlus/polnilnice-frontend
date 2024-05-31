@@ -26,6 +26,18 @@ code {
     width: 88%;
 }
 
+.border-gradient {
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(45deg, #06ba39, #0183EEF9);
+}
+
+.hr-gradient {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(90deg, #06ba39, #0183EEF9);
+}
+
 
 @tailwind base;
 @tailwind components;
