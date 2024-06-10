@@ -6,6 +6,7 @@ import PolnilniceList from "./components/Polnilnice/PolnilniceList";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Settings from "./pages/Settings";
+import Statistics from "./pages/Statistics";
 import ProtectedRoute from "./ProtectedRoute"; // Uvozi komponento ProtectedRoute
 
 function App() {
@@ -32,6 +33,14 @@ function App() {
                         element={
                             <ProtectedRoute>
                                 <Settings />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/statistics"
+                        element={
+                            <ProtectedRoute>
+                                <Statistics />
                             </ProtectedRoute>
                         }
                     />

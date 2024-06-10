@@ -1,13 +1,10 @@
 import AppBar from "../components/AppBar";
-import {useContext, useState} from "react";
-import {UserContext} from "../context/userContext";
+import {useState} from "react";
 import Footer from "../components/Footer";
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    const userContext = useContext(UserContext);
 
     async function Login(e){
         e.preventDefault();
