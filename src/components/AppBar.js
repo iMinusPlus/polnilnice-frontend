@@ -41,7 +41,7 @@ function AppBar() {
             <div className="navbar-center hidden lg:flex">
                 <div className="join">
                     <div><Link className="btn join-item text-white" to="/">Home</Link></div>
-                    <div><Link className="btn join-item text-white" to="/">Statistics</Link></div>
+                    <div><Link className="btn join-item text-white" to="/statistics">Statistics</Link></div>
                     <div><Link className="btn join-item text-white" to="/polnilnice">Polnilnice</Link></div>
                 </div>
             </div>
@@ -91,7 +91,7 @@ function AppBar() {
                     <ul tabIndex={0}
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/">Statistics</Link></li>
+                        <li><Link to="/statistics">Statistics</Link></li>
                         <li><Link to="/polnilnice">Polnilnice</Link></li>
                         {!token && (
                             <>
