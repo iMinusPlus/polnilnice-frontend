@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Modal from "bootstrap/js/src/modal";
+import {UserContext } from "../../context/userContext";
 import ConnectionModal from "./ConnectionModal";
 
 function PolnilnicaCard(item) {
@@ -9,6 +9,9 @@ function PolnilnicaCard(item) {
     const [isLoading, setIsLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
 
+    const {userData, setUserContext} = React.useContext(UserContext);
+
+
     useEffect(() => {
         // console.log("Fetching address...");
         const fetchAddress = async () => {
@@ -16,6 +19,12 @@ function PolnilnicaCard(item) {
             const data = await res.json();
             // console.log(data);
             setAddress(data);
+
+            // Merge the new address with the existing addresses in the context
+            setUserContext(prevContext => ({
+                ...prevContext,
+                addresses: { ...prevContext.addresses, [item.item.address]: data }
+            }));
         };
         fetchAddress();
     }, [item.item.address]);
