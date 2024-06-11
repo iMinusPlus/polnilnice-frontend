@@ -1,22 +1,24 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import ChargingStationModal from './Polnilnice/ChargingStationModal'; // Import the custom modal component
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibnVjbGV1c2JlYXN0IiwiYSI6ImNsd2pvandmcjE0ZTEyaW83ajMwdDd3NHQifQ.3v2gWxIh8fwbkupLAabx0A';
 
 function Map() {
-
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [lng, setLng] = useState(15.655);
     const [lat, setLat] = useState(46.5555);
     const [zoom] = useState(13);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedFeature, setSelectedFeature] = useState(null); // State to store selected feature
 
     useEffect(() => {
         if (map.current) return; // initialize map only once
 
         // Check if the Geolocation API is available
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
+            navigator.geolocation.getCurrentPosition(function (position) {
                 // Get the user's current location
                 const userLocation = [position.coords.longitude, position.coords.latitude];
 
@@ -49,7 +51,13 @@ function Map() {
                     type: 'Feature',
                     geometry: {
                         type: 'Point',
-                        coordinates: [item.longitude, item.latitude]
+                        coordinates: [parseFloat(item.longitude), parseFloat(item.latitude)]
+                    },
+                    properties: {
+                        name: item.title,
+                        address: `${item.postcode} ${item.town}`,
+                        city: item.town,
+                        country: item.country
                     }
                 }));
 
@@ -79,48 +87,33 @@ function Map() {
                             }
                         });
 
-
-                        // Create a popup, but don't add it to the map yet.
-                        var popup = new mapboxgl.Popup({
-                            closeButton: false,
-                            closeOnClick: false
+                        map.current.on('click', 'points', function (e) {
+                            const selectedFeature = e.features[0];
+                            setSelectedFeature(selectedFeature);
+                            setModalIsOpen(true); // Open modal on click
                         });
 
-                        map.current.on('mouseenter', 'points', function (e) {
-                                // Change the cursor style as a UI indicator.
-                                map.current.getCanvas().style.cursor = 'pointer';
-
-                                var coordinates = e.features[0].geometry.coordinates.slice();
-                                // var description = e.features[0].properties.description;
-                                var description = "hi";
-
-                                // Ensure that if the map is zoomed out such that multiple
-                                // copies of the feature are visible, the popup appears
-                                // over the copy being pointed to.
-                                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-                                }
-
-                                // Populate the popup and set its coordinates
-                                // based on the feature found.
-                                popup.setLngLat(coordinates).setHTML(description).addTo(map.current);
-                            }
-                        );
+                        map.current.on('mouseenter', 'points', function () {
+                            map.current.getCanvas().style.cursor = 'pointer'; // Change cursor to pointer
+                        });
 
                         map.current.on('mouseleave', 'points', function () {
-                                map.current.getCanvas().style.cursor = '';
-                                popup.remove();
-
-                            }
-                        );
-
+                            map.current.getCanvas().style.cursor = '';
+                        });
                     });
                 });
             });
     }, []);
 
     return (
-        <div ref={mapContainer} className="map-container"/>
+        <>
+            <div ref={mapContainer} className="map-container" />
+            <ChargingStationModal
+                isOpen={modalIsOpen}
+                onRequestClose={() => setModalIsOpen(false)}
+                selectedFeature={selectedFeature}
+            />
+        </>
     );
 }
 
