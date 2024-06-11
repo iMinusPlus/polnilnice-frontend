@@ -46,7 +46,7 @@ function PolnilnicaCard(item) {
                 </div>
             </div>
 
-            <ConnectionModal connections={connections} id={"my_modal_4"} show={showModal} onClose={() => setShowModal(false)}/>
+            <ConnectionModal connections={connections} chargingStation={address} id={"my_modal_4"} show={showModal} onClose={() => setShowModal(false)}/>
         </>
     );
 }
