@@ -10,7 +10,7 @@ function AppBar() {
         const storedToken = localStorage.getItem('jwt-token');
         if (storedToken) {
             setToken(storedToken);
-            fetch('https://elektropolnilnice.eu:3000/users/protected', {
+            fetch('http://elektropolnilnice.eu:3000/users/protected', {
                 headers: {
                     'jwt-token': storedToken,
                 },

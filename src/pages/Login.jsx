@@ -8,7 +8,7 @@ function Login() {
 
     async function Login(e){
         e.preventDefault();
-        const res = await fetch("https://elektropolnilnice.eu:3000/users/login", {
+        const res = await fetch("http://elektropolnilnice.eu:3000/users/login", {
             method: "POST",
             credentials: "include",
             headers: { 'Content-Type': 'application/json'},

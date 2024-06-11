@@ -10,7 +10,7 @@ function Register() {
 
     async function Register(e){
         e.preventDefault();
-        const res = await fetch("https://elektropolnilnice.eu:3000/users/", {
+        const res = await fetch("http://elektropolnilnice.eu:3000/users/", {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },

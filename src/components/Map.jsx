@@ -44,7 +44,7 @@ function Map() {
         });
 
         // Fetch data from backend
-        fetch('https://elektropolnilnice.eu:3000/address/')
+        fetch('http://elektropolnilnice.eu:3000/address/')
             .then(response => response.json())
             .then(data => {
                 const coordinates = data.map(item => ({

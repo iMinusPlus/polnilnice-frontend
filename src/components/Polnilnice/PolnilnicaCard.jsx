@@ -15,7 +15,7 @@ function PolnilnicaCard(item) {
     useEffect(() => {
         // console.log("Fetching address...");
         const fetchAddress = async () => {
-            const res = await fetch(`https://52.174.127.46:3000/address/${item.item.address}`);
+            const res = await fetch(`http://52.174.127.46:3000/address/${item.item.address}`);
             const data = await res.json();
             // console.log(data);
             setAddress(data);
@@ -34,7 +34,7 @@ function PolnilnicaCard(item) {
         // document.getElementById('my_modal_4').showModal();
         setIsLoading(true);
         const fetchPromises = item.item.connections.map(connectionId =>
-            fetch(`https://52.174.127.46:3000/connection/${connectionId}`).then(res => res.json())
+            fetch(`http://52.174.127.46:3000/connection/${connectionId}`).then(res => res.json())
         );
         const data = await Promise.all(fetchPromises);
         setConnections(data);

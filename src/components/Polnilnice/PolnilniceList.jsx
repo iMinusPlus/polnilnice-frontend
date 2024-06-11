@@ -41,7 +41,7 @@ function PolnilniceList() {
 
     useEffect(() => {
         const getPolnilnice = async function () {
-            const res = await fetch("https://52.174.127.46:3000/elektropolnilnice/");
+            const res = await fetch("http://52.174.127.46:3000/elektropolnilnice/");
             const data = await res.json();
             setData(data);
             setIsLoading(false);
