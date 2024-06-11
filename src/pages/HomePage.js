@@ -14,8 +14,6 @@ function HomePage() {
                 <div className={"flex justify-center"}>
                     <Map/>
                 </div>
-                <p>TEST</p>
-                <p className="display-6 lead text-error text-center">PAGE UNDER CONSTRUCTION</p>
             </div>
             <Footer/>
         </div>
